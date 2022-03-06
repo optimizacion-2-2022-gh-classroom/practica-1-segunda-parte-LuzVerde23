@@ -31,8 +31,10 @@
 ## Acerca de este proyecto
     
 Este proyecto contiene la segunda parte de la práctica 1 de la materia de "Temas selectos de Modelado". Los **objetivos** de este trabajo son:
-  **Implementar un método numérico para resolver un problema de optimización convexa**
-  **Documnentar la implementación del método numérico mediante la paquetería [sphinx](https://www.sphinx-doc.org/en/master/) 
+ 
++ **Implementar un método numérico para resolver un problema de optimización convexa**
+    
++ **Documnentar la implementación del método numérico mediante la paquetería [sphinx](https://www.sphinx-doc.org/en/master/)**
     
 La primera parte de esta práctica está documentada en los siguientes reposditorios, donde se realizó una investigación sobre los métodos y problemas de optimización de interés para cada integrante de este equipo, se reportaron ejemplos, planteamientos y paqueterías que permiten resolver este tipo de problemas.
 
@@ -45,7 +47,7 @@ La primera parte de esta práctica está documentada en los siguientes reposdito
 ## Estructura básica del proyecto 📁
     
 ```
-**practica-1-segunda-parte-LuzVerde23:**
+practica-1-segunda-parte-LuzVerde23:
  |
  ├── README.md                                   <- Contiene información relevante del proyecto.
  │
