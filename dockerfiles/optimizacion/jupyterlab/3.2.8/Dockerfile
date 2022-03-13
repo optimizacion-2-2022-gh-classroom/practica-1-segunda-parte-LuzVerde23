@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-#
+
 ENV TIMEZONE America/Mexico_City
 ENV JUPYTERLAB_VERSION 3.2.8
 ENV LANG C.UTF-8
