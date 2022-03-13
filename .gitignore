@@ -3,6 +3,7 @@
 
 # ignore everything in .gitignore
 .ipynb_checkpoints
+.idea/**
 notebooks/eda/.ipynb_checkpoints/
 data/*.csv
 conf/local/**
