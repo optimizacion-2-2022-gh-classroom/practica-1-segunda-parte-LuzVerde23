@@ -38,4 +38,4 @@ jobs:
           file: dockerfiles/optimizacion/jupyterlab/3.2.8/Dockerfile #path in repo to Dockerfile
           platforms: linux/amd64
           push: true
-          tags: urieluard/opt_p1_2:0.1
+          tags: sancas96/docker_t3:0.1
