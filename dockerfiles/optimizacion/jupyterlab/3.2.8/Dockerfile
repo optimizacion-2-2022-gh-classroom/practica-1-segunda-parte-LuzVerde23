@@ -36,7 +36,7 @@ RUN pip3 install $PIP_PACKAGES
 #c kernel
 RUN sudo chmod gou+wrx -R /usr/local/share/jupyter/kernels/
 RUN python_version=$(ls ~/.local/lib/|grep python) && pip3 install --user git+https://github.com/brendan-rius/jupyter-c-kernel.git && python3 ~/.local/lib/$python_version/site-packages/jupyter_c_kernel/install_c_kernel --prefix=/usr/local/
-#
+
 
 RUN sudo chmod gou+wx -R ~/.local
 
