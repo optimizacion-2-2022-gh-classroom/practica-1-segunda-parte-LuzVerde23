@@ -1,4 +1,5 @@
 from collections import defaultdict
+import numpy as np
 
 class MaxFlowAeiu:
     '''
@@ -20,7 +21,7 @@ class MaxFlowAeiu:
         '''
         self.graph = graph
         self.N = len(graph)
-        self.source=0      
+        self.source = 0      
         self.sink= self.N-1
         self.residualgraph = self.graph
     
@@ -67,6 +68,56 @@ class MaxFlowAeiu:
         # Se crea un check ternario para regresar True 
         # si el camino sido recorrido completamente False de lo contrario
         return True if visit[sink] else False
+
+
+    # metodo para ejecutar algoritmo de ford fulkerson
+    def ford_fulkerson(self):
+        '''
+        Runs the Ford Fulkerson method, keeping and updating the residual graph 
+        and running over the bfs function in all the nodes.
+        Args:
+            source (int): index the source node of the graph.
+            sink (int): index the sink node of the graph.
+        Attributes:
+            residualgraph(matrix):matrix the residual graph,
+            path_flow(float): we need to calculate the min flow of the selected path,
+            parent: vector for keeping track of the parents of visited nodes.
+        Returns:
+            maximum_flow(float): calculated maximum flow of the graph.
+            
+        '''
+        # se inicia parent en -1 de acuerdo a la cantidad de nodos
+        parent=[-1]*(self.N)
+
+        # se inicia maximun_flow en 0
+        maximum_flow=0
+            
+        while self.breadth_first_search(self.source,self.sink,parent):
+            # se inicia pathflow en inf float 
+            # que contendra el minimo flujo del path seleccionado
+            path_flow = float('inf')     
+            j = self.sink                    
+                
+            while not j == self.source:
+                # se calcula el minimo de todo el path 
+                path_flow=min(path_flow, self.residualgraph[parent[j]][j])
+                # se asigna el valor del nodo padre  
+                j=parent[j]
+
+            
+            # se actualiza los valores residuales de los edges en self.residualgraph
+            v = self.sink
+            while not v == self.source:
+                u=parent[v]
+                self.residualgraph[u][v] -= path_flow                   
+                self.residualgraph[v][u] += path_flow
+                v=parent[v]
+
+
+            # se agrega el path_flow para calcular el maximo
+            maximum_flow += path_flow  
+            
+        return maximum_flow
         
     
     
