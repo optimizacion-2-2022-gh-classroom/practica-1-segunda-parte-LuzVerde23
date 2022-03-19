@@ -12,8 +12,8 @@ class MaxFlowAeiu:
         Attributes:
             graph(matrix): defines the graph from a matrix,
             N (bool): the number of the nodes in the graph,
-            source (int): the source node of the graph,
-            sink (int): the sink node of the graph.
+            source (int): index the source node of the graph,
+            sink (int): index the sink node of the graph.
             residualgraph(matrix):graph where the residual values 
                                   of the edges are updated after 
                                   each iteration.
@@ -29,8 +29,8 @@ class MaxFlowAeiu:
         Defines queue of the visited nodes and the parents of them, and
         so long as the queue of the nodes that need to be visited is not empty, the algorithm goes on.
          Args:
-            source (int): the source node of the graph.
-            sink (int): the sink node of the graph.
+            source (int): index the source node of the graph.
+            sink (int): index the sink node of the graph.
             parent(list): vector for keeping track of the parents of visited nodes.
         Attributes:
             visit(list): vector for keeping track of visited nodes,
