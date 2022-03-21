@@ -24,7 +24,7 @@ class MaxFlowAeiu:
         self.sink= self.N-1
         self.residualgraph = self.graph
     
-    def breadth_first_search(self,source,sink,parent): 
+    def busq_anchura(self,source,sink,parent): 
         '''
         Defines queue of the visited nodes and the parents of them, and
         so long as the queue of the nodes that need to be visited is not empty, the algorithm goes on.
@@ -91,7 +91,7 @@ class MaxFlowAeiu:
         # se inicia maximun_flow en 0
         maximum_flow=0
             
-        while self.breadth_first_search(self.source,self.sink,parent):
+        while self.busq_anchura(self.source,self.sink,parent):
             # se inicia pathflow en inf float 
             # que contendra el minimo flujo del path seleccionado
             path_flow = float('inf')     
