@@ -1,0 +1,177 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MaxFlowAeiu &#8212; Max-Flow 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>Max-Flow 1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>MaxFlowAeiu</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <h1>Source code for MaxFlowAeiu</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<div class="viewcode-block" id="MaxFlowAeiu"><a class="viewcode-back" href="../MaxFlowAeiu.html#MaxFlowAeiu.MaxFlowAeiu">[docs]</a><span class="k">class</span> <span class="nc">MaxFlowAeiu</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Finds the paths in order to return the maximum flow in the</span>
+<span class="sd">        network. This class implements the Ford Fulkerson method.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">graph</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Initialices parts of the problem.</span>
+<span class="sd">        Attributes:</span>
+<span class="sd">            graph (matrix): defines the graph from a matrix,</span>
+<span class="sd">            N (bool): the number of the nodes in the graph,</span>
+<span class="sd">            source (int): index the source node of the graph,</span>
+<span class="sd">            sink (int): index the sink node of the graph.</span>
+<span class="sd">            residualgraph(matrix):graph where the residual values </span>
+<span class="sd">                                  of the edges are updated after </span>
+<span class="sd">                                  each iteration.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="mi">0</span>      
+        <span class="bp">self</span><span class="o">.</span><span class="n">sink</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">residualgraph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span>
+    
+<div class="viewcode-block" id="MaxFlowAeiu.busq_anchura"><a class="viewcode-back" href="../MaxFlowAeiu.html#MaxFlowAeiu.MaxFlowAeiu.busq_anchura">[docs]</a>    <span class="k">def</span> <span class="nf">busq_anchura</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">source</span><span class="p">,</span><span class="n">sink</span><span class="p">,</span><span class="n">parent</span><span class="p">):</span> 
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Defines queue of the visited nodes and the parents of them, and</span>
+<span class="sd">        so long as the queue of the nodes that need to be visited is not empty, the algorithm goes on.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            source (int): index the source node of the graph.</span>
+<span class="sd">            sink (int): index the sink node of the graph.</span>
+<span class="sd">            parent (list): vector for keeping track of the parents of visited nodes.</span>
+<span class="sd">        Attributes:</span>
+<span class="sd">            visit (list): vector for keeping track of visited nodes,</span>
+<span class="sd">            queue (list): the queue of the nodes needed to be visited,</span>
+<span class="sd">            parent (list): vector for keeping track of the parents of visited nodes.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            (bool): A True/False indicating the presence or absence of a path. </span>
+<span class="sd">            It also updates the parent list with the information necessary to reconstruct the path.</span>
+<span class="sd">  </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># se inicia el vector de visit en False de acuerdo al nuemero de nodos </span>
+        <span class="n">visit</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
+        <span class="c1"># se inicia el vector queue vacio     </span>
+        <span class="n">queue</span><span class="o">=</span><span class="p">[]</span>    
+
+        <span class="c1"># se agerga al vector queue el valor  de source y </span>
+        <span class="c1"># mediante source se asigna al primer espacio del vector visit en true </span>
+        <span class="c1">#para comenzar nuestra busqueda del path</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>              
+        <span class="n">visit</span><span class="p">[</span><span class="n">source</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>               
+
+        <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+
+            <span class="c1"># se extrae siempre el primer valor del queue y seb asigna a u</span>
+            <span class="n">u</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            
+            <span class="c1"># Se requiere tanto el index como el valor del nodo que sera padre</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]):</span> 
+                <span class="k">if</span> <span class="n">visit</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                    <span class="n">visit</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">parent</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">=</span><span class="n">u</span>
+        
+        <span class="c1"># Se crea un check ternario para regresar True </span>
+        <span class="c1"># si el camino sido recorrido completamente False de lo contrario</span>
+        <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">visit</span><span class="p">[</span><span class="n">sink</span><span class="p">]</span> <span class="k">else</span> <span class="kc">False</span></div>
+
+
+    <span class="c1"># metodo para ejecutar algoritmo de ford fulkerson</span>
+<div class="viewcode-block" id="MaxFlowAeiu.ford_fulkerson"><a class="viewcode-back" href="../MaxFlowAeiu.html#MaxFlowAeiu.MaxFlowAeiu.ford_fulkerson">[docs]</a>    <span class="k">def</span> <span class="nf">ford_fulkerson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Runs the Ford Fulkerson method, keeping and updating the residual graph </span>
+<span class="sd">        and running over the bfs function in all the nodes.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            source (int): index the source node of the graph.</span>
+<span class="sd">            sink (int): index the sink node of the graph.</span>
+<span class="sd">        Attributes:</span>
+<span class="sd">            residualgraph (matrix):matrix the residual graph,</span>
+<span class="sd">            path_flow (float): we need to calculate the min flow of the selected path,</span>
+<span class="sd">            parent: vector for keeping track of the parents of visited nodes.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            maximum_flow (float): calculated maximum flow of the graph.</span>
+<span class="sd">            </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># se inicia parent en -1 de acuerdo a la cantidad de nodos</span>
+        <span class="n">parent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
+
+        <span class="c1"># se inicia maximun_flow en 0</span>
+        <span class="n">maximum_flow</span><span class="o">=</span><span class="mi">0</span>
+            
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">busq_anchura</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">sink</span><span class="p">,</span><span class="n">parent</span><span class="p">):</span>
+            <span class="c1"># se inicia pathflow en inf float </span>
+            <span class="c1"># que contendra el minimo flujo del path seleccionado</span>
+            <span class="n">path_flow</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>     
+            <span class="n">j</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sink</span>                    
+                
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">j</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">:</span>
+                <span class="c1"># se calcula el minimo de todo el path </span>
+                <span class="n">path_flow</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">path_flow</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">residualgraph</span><span class="p">[</span><span class="n">parent</span><span class="p">[</span><span class="n">j</span><span class="p">]][</span><span class="n">j</span><span class="p">])</span>
+                <span class="c1"># se asigna el valor del nodo padre  </span>
+                <span class="n">j</span><span class="o">=</span><span class="n">parent</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+            
+            <span class="c1"># se actualiza los valores residuales de los edges en self.residualgraph</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sink</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">v</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">:</span>
+                <span class="n">u</span><span class="o">=</span><span class="n">parent</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">residualgraph</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">-=</span> <span class="n">path_flow</span>                   
+                <span class="bp">self</span><span class="o">.</span><span class="n">residualgraph</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">path_flow</span>
+                <span class="n">v</span><span class="o">=</span><span class="n">parent</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+
+
+            <span class="c1"># se agrega el path_flow para calcular el maximo</span>
+            <span class="n">maximum_flow</span> <span class="o">+=</span> <span class="n">path_flow</span>  
+            
+        <span class="k">return</span> <span class="n">maximum_flow</span></div></div>
+        
+    
+    
+        
+        
+        
+</pre></div>
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Team-2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

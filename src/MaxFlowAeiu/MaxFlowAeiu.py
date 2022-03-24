@@ -10,7 +10,7 @@ class MaxFlowAeiu:
         '''
         Initialices parts of the problem.
         Attributes:
-            graph(matrix): defines the graph from a matrix,
+            graph (matrix): defines the graph from a matrix,
             N (bool): the number of the nodes in the graph,
             source (int): index the source node of the graph,
             sink (int): index the sink node of the graph.
@@ -28,14 +28,15 @@ class MaxFlowAeiu:
         '''
         Defines queue of the visited nodes and the parents of them, and
         so long as the queue of the nodes that need to be visited is not empty, the algorithm goes on.
-         Args:
+        
+        Args:
             source (int): index the source node of the graph.
             sink (int): index the sink node of the graph.
-            parent(list): vector for keeping track of the parents of visited nodes.
+            parent (list): vector for keeping track of the parents of visited nodes.
         Attributes:
-            visit(list): vector for keeping track of visited nodes,
-            queue(list): the queue of the nodes needed to be visited,
-            parent(list): vector for keeping track of the parents of visited nodes.
+            visit (list): vector for keeping track of visited nodes,
+            queue (list): the queue of the nodes needed to be visited,
+            parent (list): vector for keeping track of the parents of visited nodes.
         Returns:
             (bool): A True/False indicating the presence or absence of a path. 
             It also updates the parent list with the information necessary to reconstruct the path.
@@ -78,11 +79,11 @@ class MaxFlowAeiu:
             source (int): index the source node of the graph.
             sink (int): index the sink node of the graph.
         Attributes:
-            residualgraph(matrix):matrix the residual graph,
-            path_flow(float): we need to calculate the min flow of the selected path,
+            residualgraph (matrix):matrix the residual graph,
+            path_flow (float): we need to calculate the min flow of the selected path,
             parent: vector for keeping track of the parents of visited nodes.
         Returns:
-            maximum_flow(float): calculated maximum flow of the graph.
+            maximum_flow (float): calculated maximum flow of the graph.
             
         '''
         # se inicia parent en -1 de acuerdo a la cantidad de nodos

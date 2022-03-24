@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MaxFlowAeiu module &#8212; Max-Flow 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="MaxFlowAeiu" href="index.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Max-Flow 1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>MaxFlowAeiu module</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">MaxFlowAeiu</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="module-MaxFlowAeiu">
+<span id="maxflowaeiu-module"></span><h1>MaxFlowAeiu module<a class="headerlink" href="#module-MaxFlowAeiu" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="MaxFlowAeiu.MaxFlowAeiu">
+<em class="property">class </em><code class="descclassname">MaxFlowAeiu.</code><code class="descname">MaxFlowAeiu</code><span class="sig-paren">(</span><em>graph</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MaxFlowAeiu.html#MaxFlowAeiu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Finds the paths in order to return the maximum flow in the
+network. This class implements the Ford Fulkerson method.</p>
+<dl class="method">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.busq_anchura">
+<code class="descname">busq_anchura</code><span class="sig-paren">(</span><em>source</em>, <em>sink</em>, <em>parent</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MaxFlowAeiu.html#MaxFlowAeiu.busq_anchura"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.busq_anchura" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines queue of the visited nodes and the parents of them, and
+so long as the queue of the nodes that need to be visited is not empty, the algorithm goes on.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>source (int): index the source node of the graph.
+sink (int): index the sink node of the graph.
+parent (list): vector for keeping track of the parents of visited nodes.</dd>
+<dt>Attributes:</dt>
+<dd>visit (list): vector for keeping track of visited nodes,
+queue (list): the queue of the nodes needed to be visited,
+parent (list): vector for keeping track of the parents of visited nodes.</dd>
+<dt>Returns:</dt>
+<dd>(bool): A True/False indicating the presence or absence of a path. 
+It also updates the parent list with the information necessary to reconstruct the path.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.ford_fulkerson">
+<code class="descname">ford_fulkerson</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MaxFlowAeiu.html#MaxFlowAeiu.ford_fulkerson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.ford_fulkerson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the Ford Fulkerson method, keeping and updating the residual graph 
+and running over the bfs function in all the nodes.
+Args:</p>
+<blockquote>
+<div>source (int): index the source node of the graph.
+sink (int): index the sink node of the graph.</div></blockquote>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>residualgraph (matrix):matrix the residual graph,
+path_flow (float): we need to calculate the min flow of the selected path,
+parent: vector for keeping track of the parents of visited nodes.</dd>
+<dt>Returns:</dt>
+<dd>maximum_flow (float): calculated maximum flow of the graph.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">MaxFlowAeiu</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Team-2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>
