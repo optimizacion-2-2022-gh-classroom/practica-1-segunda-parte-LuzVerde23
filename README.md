@@ -53,11 +53,11 @@ practica-1-segunda-parte-LuzVerde23:
  │
  ├── reporte_equipo_2_parte_2_practica_1.ipynb   <- Reporte donde se explica la implementación del método.
  |
- ├── data                                        <- Bases de datos utilizadas para comprobar el método
+ ├── BD                                          <- Bases de datos utilizadas para comprobar el método
  │
  ├── Dockerfiles                                 <- Carpeta con archivo de Docker que crea la imágen del entorno para la ejecución del método
  |
- ├── otro(s)...                                  <- .....
+ ├── src                                         <- Archivos y estructura de carpetas necesarias para el paquete
  │
  ├── images                                      <- Contiene las imágenes utilizadas en el repositorio.
  │
