@@ -1,13 +1,14 @@
-#import pytest
-import MaxFlowAeiu
+import pytest
+from MaxFlowAeiu.MaxFlowAeiu import MaxFlowAeiu
 import numpy as np
 from ortools.graph import pywrapgraph
 
-def test_max_flow():
+def test_ford_fulkerson():
     """
     Función para comprobar que el método implementado en la función resuleve el problema de flujo máximo de forma adecuada. El resultado
     se compara con un problema que se resuelve con la librería OR-Tools.
     """
+    
     # Solución de un problema de flujo máximo de la librería de OR-Tools (https://developers.google.com/optimization/flow/maxflow)
     
     # Instantiate a SimpleMaxFlow solver.
@@ -32,4 +33,5 @@ def test_max_flow():
     sol_MFA = MF.ford_fulkerson()
 
     assert abs(sol_ORT - sol_MFA) < 0.0001
+    
 
