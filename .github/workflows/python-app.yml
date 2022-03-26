@@ -5,9 +5,10 @@ name: Python application
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: 
+    - main
+    paths:
+      - src/test_MaxFlowAeiu.py
 
 jobs:
   build:
