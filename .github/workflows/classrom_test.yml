@@ -1,5 +1,10 @@
 name: Our Pyhton app
-on: [push]
+on: 
+  push:
+   branches:
+    - main
+   paths:
+    - test/test_ff.py
 
 jobs:
   build:
