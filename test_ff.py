@@ -6,7 +6,7 @@ from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import maximum_flow
 from src.MaxFlowAeiu.MaxFlowAeiu import MaxFlowAeiu
 
-d = pd.read_csv('BD/d.csv')
+d = pd.read_csv('BD/d.csv',header=None)
 
 #Resolvemos usando networkx
 # Generamos el arreglo final de tipo "numpy array"
