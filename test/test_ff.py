@@ -14,6 +14,7 @@ G = nx.from_numpy_matrix(arreglo, create_using=nx.DiGraph())
 flow_value_nx, flow_dict = nx.maximum_flow(G, 0, 43, capacity='weight')
 
 #Resolvemos usando scipy
+#fix en nombre de variable arreglo2
 arreglo2 = d.to_numpy()
 arreglo2=arreglo.astype(int)
 graph = csr_matrix(arreglo2)
