@@ -1,12 +1,12 @@
 from pytest import approx
-from numpy import load
+from numpy import genfromtxt
 import networkx as nx
 from networkx.algorithms.flow import maximum_flow
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import maximum_flow
 from src.MaxFlowAeiu.MaxFlowAeiu import MaxFlowAeiu
 
-d=load('BD/d.npy')
+d = genfromtxt('BD/d.csv', delimiter=',')
 
 #Resolvemos usando networkx
 # Generamos el arreglo final de tipo "numpy array"
