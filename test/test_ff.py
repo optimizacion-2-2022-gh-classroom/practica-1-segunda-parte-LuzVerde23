@@ -4,6 +4,7 @@ from networkx.algorithms.flow import maximum_flow
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import maximum_flow
 from MaxFlowAeiu.MaxFlowAeiu import MaxFlowAeiu
+from src.MaxFlowAeiu.MaxFlowAeiu import MaxFlowAeiu
 
 d = pd.read_csv('BD/d.csv',header=None)
 
