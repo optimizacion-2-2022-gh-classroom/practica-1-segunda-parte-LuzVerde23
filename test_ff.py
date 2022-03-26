@@ -19,14 +19,14 @@ arreglo = d.to_numpy()
 arreglo
 arreglo2=arreglo.astype(int)
 graph = csr_matrix(arreglo2)
-flow_value.sp=maximum_flow(graph, 0, 43).flow_value
+flow_value_sp=maximum_flow(graph, 0, 43).flow_value
 
 #Resolvemos usando nuestro paquete MaxFlowAeiu
 arreglo3 = d.to_numpy()
-flow_value=MaxFlowAeiu.ford_fulkerson(arreglo3)
+flow_value_aeiu=MaxFlowAeiu.ford_fulkerson(arreglo3)
 
 def test_vals_1():
-    assert(flow_value_nx == flow_value)
+    assert(flow_value_nx == flow_value_aeiu)
 
 def test_vals_2():
-    assert(flow_value_sp == flow_value)
+    assert(flow_value_sp == flow_value_aeiu)
