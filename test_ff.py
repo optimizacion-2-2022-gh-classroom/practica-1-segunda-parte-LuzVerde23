@@ -1,6 +1,6 @@
 from pytest import approx
 from numpy import load
-import networkx as nx
+#import networkx as nx
 from networkx.algorithms.flow import maximum_flow
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import maximum_flow
