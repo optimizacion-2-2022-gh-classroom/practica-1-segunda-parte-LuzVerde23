@@ -1,5 +1,5 @@
 from pytest import approx
-from pandas as pd
+import pandas as pd
 import networkx as nx
 from networkx.algorithms.flow import maximum_flow
 from scipy.sparse import csr_matrix
