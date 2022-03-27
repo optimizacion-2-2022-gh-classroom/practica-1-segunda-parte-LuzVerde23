@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaxFlowAeiu module &mdash; Max-Flow 0.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Max-Flow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MaxFlowAeiu module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Max-Flow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>MaxFlowAeiu module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/MaxFlowAeiu.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-MaxFlowAeiu">
+<span id="maxflowaeiu-module"></span><h1>MaxFlowAeiu module<a class="headerlink" href="#module-MaxFlowAeiu" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="MaxFlowAeiu.MaxFlowAeiu">
+<em class="property">class </em><code class="sig-prename descclassname">MaxFlowAeiu.</code><code class="sig-name descname">MaxFlowAeiu</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MaxFlowAeiu.html#MaxFlowAeiu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Finds the paths in order to return the maximum flow in the
+network. This class implements the Ford Fulkerson method.</p>
+<dl class="py method">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.busq_anchura">
+<code class="sig-name descname">busq_anchura</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">sink</span></em>, <em class="sig-param"><span class="n">parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MaxFlowAeiu.html#MaxFlowAeiu.busq_anchura"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.busq_anchura" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines queue of the visited nodes and the parents of them, and
+so long as the queue of the nodes that need to be visited is not empty, the algorithm goes on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<em>int</em>) – index the source node of the graph.</p></li>
+<li><p><strong>sink</strong> (<em>int</em>) – index the sink node of the graph.</p></li>
+<li><p><strong>parent</strong> (<em>list</em>) – vector for keeping track of the parents of visited nodes.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.visit">
+<code class="sig-name descname">visit</code><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.visit" title="Permalink to this definition">¶</a></dt>
+<dd><p>vector for keeping track of visited nodes,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.queue">
+<code class="sig-name descname">queue</code><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>the queue of the nodes needed to be visited,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.parent">
+<code class="sig-name descname">parent</code><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>vector for keeping track of the parents of visited nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A True/False indicating the presence or absence of a path.
+It also updates the parent list with the information necessary to reconstruct the path.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.ford_fulkerson">
+<code class="sig-name descname">ford_fulkerson</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MaxFlowAeiu.html#MaxFlowAeiu.ford_fulkerson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.ford_fulkerson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the Ford Fulkerson method, keeping and updating the residual graph
+and running over the bfs function in all the nodes.
+:param source: index the source node of the graph.
+:type source: int
+:param sink: index the sink node of the graph.
+:type sink: int</p>
+<dl class="py attribute">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.residualgraph">
+<code class="sig-name descname">residualgraph</code><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.residualgraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>matrix the residual graph,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="MaxFlowAeiu.MaxFlowAeiu.path_flow">
+<code class="sig-name descname">path_flow</code><a class="headerlink" href="#MaxFlowAeiu.MaxFlowAeiu.path_flow" title="Permalink to this definition">¶</a></dt>
+<dd><p>we need to calculate the min flow of the selected path,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="id0">
+<code class="sig-name descname">parent</code><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>vector for keeping track of the parents of visited nodes.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>calculated maximum flow of the graph.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>maximum_flow (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Equipo2 Optimizacion2.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
