@@ -6,6 +6,9 @@
 Welcome to chale's documentation!
 =================================
 
+otra cosa por aqui
+------------------
+
 Welcome to something else... blah blah blah
 
 .. toctree::
