@@ -7,9 +7,9 @@
     
 1. [Integrantes y roles asignados](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#acerca-de-este-proyecto)
     
-2. [Acerca de esta proyecto](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#acerca-de-este-proyecto)
+2. [Acerca de este proyecto](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#acerca-de-este-proyecto)
     
-3. [Estructura básica del proyecto](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#estructura-b%C3%A1sica-del-proyecto-)
+3. [Estructura básica del repositorio](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#estructura-b%C3%A1sica-del-proyecto-)
     
 4. [¿Qué lenguaje utlizamos?](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#qu%C3%A9-lenguaje-utlizamos)
 
@@ -45,10 +45,50 @@ La primera parte de esta práctica está documentada en los siguientes repositor
   + [Práctica 1, primera parte (equipo: Ita/Luz)](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-primera-parte-sancas96)
     
   + [Práctica 1, primera parte (equipo: Edgar/Uriel)](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-primera-parte-urieluard)
+
+**El algoritmo que se eligió para su implementación corresponde al conocido con el nombre de Ford-Fulkerson** y se utiliza para resolver el **problema de flujo máximo**. En el cual tenemos un nodo inicial, llamado fuente, un nodo terminal que llamaremos sumidero, arcos y nodos que interconectan toda la red. Con un grafo de este tipo lo que queremos encontrar es el valor del flujo máximo que puede circular por la red.
     
+El problema de optimización planteado se puede resolver desde el punto de vista de la programación lineal de la siguiente forma:
+
+#### Variables de Decisión:
+
+Unidades que fluyen desde el nodo i al j (flujo a través de los arcos)
+    
+#### Función Objetivo: 
+
+Maximizar las unidades que salen del nodo de origen o fuente (s) a los que éste conecta (j, k, l,...) o alternativamente maximizar las unidades que llegan al nodo de destino o sumidero (t) desde los que conectan a él.
+
+#### Restricciones:
+
+* Restricciones de Flujo Máximo: La cantidad de unidades que sale de cada nodo de origen a un nodo de destino no puede superar la capacidad detallada en el arco, por ejemplo, del nodo 1 al nodo 2 sólo se pueden enviar 7 unidades.
+
+* Restricciones de Balance de Flujo en los Nodos: Debe existir un equilibrio entre la cantidad de unidades que llega a un nodo y las que de éste salen.
+
+* No Negatividad e Integralidad: Las variables de decisión deben cumplir las condiciones de no negatividad. Adicionalmente exigiremos que éstas adopten valores enteros aún cuando se podría flexibilizar dicha situación lo que daría origen a un problema de Programación Lineal.
+
+#### Teorema de Ford Fulkerson
+
+_En cualquier red, el flujo máximo que fluye de la fuente al destino es igual a la capacidad del corte mínimo que separa a la fuente del destino_.
+
+Esto quiere decir que el algoritmo concluye cuando el flujo máximo es devuelto y su costo depende del costo de cada iteración y del número de estas.
+    
+El algoritmo se programó con base en otro llamado ["Búsqueda en anchura (Breadth-first search)"](https://es.wikipedia.org/wiki/B%C3%BAsqueda_en_anchura). Formalmente,se trata de un algoritmo de búsqueda sin información, que expande y examina todos los nodos de un árbol sistemáticamente para buscar una solución. El algoritmo no usa ninguna estrategia heurística.
+    
+Para myor referencia de los algoritmos de Ford-Fulkerson y de Búsqueda en Anchura consultar el NoteBook [reporte_equipo_2_parte_2_practica_1.ipynb](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-diramtz/blob/main/reporte_equipo_2_parte_2_practica_1.ipynb) y las [referencias](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#referencias) [3] - [6] que vienen al final de este documento.
+
+#### Uso del Algoritmo
+
+El Algoritmo implementado es capaz de resolver una red o grafo dirigido, que contenga uno y solo un nodo de inyección de flujo (nodo fuente) y otro que sea de solo extracción (nodo sumidero). El ejemplo práctico que se resolvió para comprobar la funcionalidad del algoritmo y el paquete implementado corresponde al de una red eléctrica, en donde nos interesa saber el **flujo máximo de energía eléctica que se puede transmitir desde uno de los nodos ubicados en el norte del país (con alto potencial de generación) hasta otro ubicado en el centro (de los de mayor consumo en el país)**. 
+
+Resolver este problema resulta interesante por los siguientes aspectos:
+    
+- Para determinar los posibles cuellos de botella (restricciones) que se pueden presentar al tratar de enviar energía desde un punto de la red a otro.
+- Encontrar posibles puntos de inyección donde resulte más conveniente instalar generación (que se obtengan mayores flujos máximos por la red)
+- Descubrir cuales corredores de trasnmisión (rutas) se ven más utilizadas cuando la inyección de energía se presenta en algún punto de la red.
+
 ---  
 
-## Estructura básica del proyecto
+## Estructura básica del repositorio
     
 ```
 practica-1-segunda-parte-LuzVerde23:
