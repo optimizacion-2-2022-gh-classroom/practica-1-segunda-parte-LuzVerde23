@@ -17,3 +17,4 @@ checkpoints_itam/
 data/luigi/*.pkl
 __pycache__
 archivo_io
+src/docs/_build
