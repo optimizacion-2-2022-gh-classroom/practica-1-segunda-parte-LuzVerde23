@@ -94,7 +94,7 @@ De igual forma, en este repositorio se cuenta con un archivo de Docker para crea
 
 ## Documentación del paquete
 
-La documentación del paquete realizado se hizo con [Sphinx](https://www.sphinx-doc.org/en/master/) y se puede consultar en este [link]((https://optimizacion-2-2022-gh-classroom.github.io/practica-1-segunda-parte-LuzVerde23/index.html).
+La documentación del paquete realizado se hizo con [Sphinx](https://www.sphinx-doc.org/en/master/) y se puede consultar en este [link](https://optimizacion-2-2022-gh-classroom.github.io/practica-1-segunda-parte-LuzVerde23/index.html).
 
 <p align = "center">
     <img src="images/sphinxheader.png" width="300" height="110" />
