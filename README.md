@@ -7,9 +7,9 @@
     
 1. [Integrantes y roles asignados](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#acerca-de-este-proyecto)
     
-2. [Acerca de esta proyecto](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#acerca-de-este-proyecto)
+2. [Acerca de este proyecto](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#acerca-de-este-proyecto)
     
-3. [Estructura básica del proyecto](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#estructura-b%C3%A1sica-del-proyecto-)
+3. [Estructura básica del repositorio](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#estructura-b%C3%A1sica-del-proyecto-)
     
 4. [¿Qué lenguaje utlizamos?](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#qu%C3%A9-lenguaje-utlizamos)
 
