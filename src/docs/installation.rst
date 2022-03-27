@@ -12,7 +12,7 @@ Install package with:
 
    #execute next line being in `src` dir where `setup.py` file is 
    #after cloning repo:
-   #https://github.com/palmoreck/example-python-package-and-sphinx-doc
+   #https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23
    pip install .
 
 or in editable mode:
@@ -21,7 +21,7 @@ or in editable mode:
 
    #execute next line being in `src` dir where `setup.py` file is 
    #after cloning repo:
-   #https://github.com/palmoreck/example-python-package-and-sphinx-doc
+   #https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23
    pip install -e .
 
 or with url:
