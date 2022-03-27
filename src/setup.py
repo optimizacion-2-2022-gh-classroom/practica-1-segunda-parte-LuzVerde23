@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(name="MaxFlowAeiu",
-      version="0.1",
+      version="0.1.1",
       description=u"Execution of the Fork Fulkerson method to find the maximum flow of a network",
       long_description=open("README.md", "r", encoding="utf-8").read(),
       url="https://optimizacion-2-2022-gh-classroom.github.io/practica-1-segunda-parte-LuzVerde23/index.html",
@@ -15,5 +15,5 @@ setup(name="MaxFlowAeiu",
       license="MIT",
       keywords='max flow',
       packages=find_packages(),
-      install_requires = ["collections-extended"]
+      #install_requires = ["collections-extended"]
       )
