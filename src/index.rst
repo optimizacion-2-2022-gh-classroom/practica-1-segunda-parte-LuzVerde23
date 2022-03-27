@@ -6,6 +6,8 @@
 Welcome to Max-Flow's documentation!
 ====================================
 
+Documentacion creada para la practica 1 segunda parte
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
