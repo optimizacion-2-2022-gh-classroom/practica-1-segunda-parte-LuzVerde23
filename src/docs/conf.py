@@ -19,9 +19,9 @@ sys.path.insert(0, os.path.abspath('/home/mirodilla/Documentos/Optimizacion/Tare
 
 # -- Project information -----------------------------------------------------
 
-project = 'chale'
-copyright = '2022, sancas96'
-author = 'sancas96'
+project = 'Max-Flow'
+copyright = '2022, Equipo2 Optimizacion2'
+author = 'Equipo2'
 
 # The short X.Y version
 version = ''
