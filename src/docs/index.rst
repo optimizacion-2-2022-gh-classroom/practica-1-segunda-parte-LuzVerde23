@@ -3,13 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to chale's documentation!
+Welcome to Max Flow documentation!
 =================================
 
-otra cosa por aqui
+Max Flow problem
 ------------------
 
-Welcome to something else... blah blah blah
+This kind of problem (Maximum Flow Problem) seeks to determine the maximum flow between a source node and a destination node, which are linked through a network, with arcs that have finite capacity. 
 
 .. toctree::
    :maxdepth: 2
