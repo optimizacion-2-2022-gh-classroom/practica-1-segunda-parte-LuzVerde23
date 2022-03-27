@@ -13,7 +13,7 @@
     
 4. [¿Qué lenguaje utlizamos?](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#qu%C3%A9-lenguaje-utlizamos)
 
-5. [Ambientes en Contenedor]
+5. [Ambientes en Contenedor](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#ambientes-en-contenedor)
     
 6. [Referencias](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#referencias)
     
@@ -76,10 +76,10 @@ practica-1-segunda-parte-LuzVerde23:
 
 ## Ambientes en Contenedor
 
-# Binder
+### Binder
 En el siguiente botón se realiza el lanzamiento de un ambiente ejeutable donde se podrán interactuar con el paquete realizado [(Max Flow](https://optimizacion-2-2022-gh-classroom.github.io/practica-1-segunda-parte-LuzVerde23/index.html)
 
-# Docker
+### Docker
 De igual forma, en este repositorio se cuenta con un archivo de Docker para crear el contenedor que contiene todas las libreríasy el paquete creado para que pueda ser utilizado desde Docker.
 --- 
 
