@@ -15,7 +15,7 @@
 
 5. [Ambientes en Contenedor](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#ambientes-en-contenedor)
 
-6. [Documentación del paquete](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/edit/main/README.md#documentaci%C3%B3n-del-paquete)
+6. [Documentación del paquete](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#documentaci%C3%B3n-del-paquete)
     
 7. [Referencias](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#referencias)
     
