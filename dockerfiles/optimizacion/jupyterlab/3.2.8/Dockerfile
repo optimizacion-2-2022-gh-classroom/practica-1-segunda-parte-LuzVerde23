@@ -7,7 +7,7 @@ ENV LC_ALL C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS="build-essential python3-dev python3-pip python3-setuptools software-properties-common libgit2-dev dirmngr libgmp3-dev libmpfr-dev"
 ENV DEB_PACKAGES="sudo nano less time git curl wget htop graphviz gfortran libopenblas-dev"
-ENV PIP_PACKAGES="numpy scipy pandas matplotlib pytest networkx"
+ENV PIP_PACKAGES="numpy scipy pandas matplotlib pytest networkx MaxFlowAeiu==0.1.1"
 
 #install app debian
 RUN apt-get update && export $DEBIAN_FRONTEND && \
