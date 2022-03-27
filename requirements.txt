@@ -4,3 +4,4 @@ pandas
 networkx
 scipy
 matplotlib
+MaxFlowAeiu==0.1.1
