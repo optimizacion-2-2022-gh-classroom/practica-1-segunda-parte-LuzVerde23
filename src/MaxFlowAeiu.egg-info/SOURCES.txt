@@ -1,3 +1,5 @@
+LICENCE.txt
+README.md
 setup.py
 MaxFlowAeiu/MaxFlowAeiu.py
 MaxFlowAeiu/__init__.py
