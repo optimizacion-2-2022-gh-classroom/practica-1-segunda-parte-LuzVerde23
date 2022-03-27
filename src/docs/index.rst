@@ -7,7 +7,7 @@ Welcome to Max Flow documentation!
 ===================================
 
 Max Flow problem
-------------------
+-----------------
 
 This kind of problem (Maximum Flow Problem) seeks to determine the maximum flow between a source node and a destination node, which are linked through a network, with arcs that have finite capacity. 
 
