@@ -113,4 +113,6 @@ La documentación del paquete realizado se hizo con [Sphinx](https://www.sphinx-
 * [6] [Oviedo J. (2008) Algoritmo de Ford-Fulkerson Mejorado](http://www.ptolomeo.unam.mx:8080/jspui/bitstream/132.248.52.100/2387/1/gonzalezoviedo.pdf)
 * [7] [Building a Smarter (and Cheaper) School Bus System: How a Boston-MIT Partnership Led to New Routes That Are 20% More Efficient and Saved the District $5 Million](https://www.the74million.org/article/building-a-smarter-and-cheaper-school-bus-system-how-a-boston-mit-partnership-led-to-new-routes-that-are-20-more-efficient-use-400-fewer-buses-save-5-million/)
 * [8] [Optimazation examples](https://vitalflux.com/convex-optimization-explained-concepts-examples/)
+* [9] [Breadth First Search or BFS for a Graph](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
+* [10] [Python3 sphinx documentation generator](https://www.youtube.com/watch?v=qrcj7sVuvUA)
  
