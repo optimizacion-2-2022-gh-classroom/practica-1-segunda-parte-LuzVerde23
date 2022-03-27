@@ -14,8 +14,10 @@
 4. [¿Qué lenguaje utlizamos?](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#qu%C3%A9-lenguaje-utlizamos)
 
 5. [Ambientes en Contenedor](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#ambientes-en-contenedor)
+
+6. [Documentación del paquete](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/edit/main/README.md#documentaci%C3%B3n-del-paquete)
     
-6. [Referencias](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#referencias)
+7. [Referencias](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#referencias)
     
 ---
 
@@ -46,7 +48,7 @@ La primera parte de esta práctica está documentada en los siguientes repositor
     
 ---  
 
-## Estructura básica del proyecto 📁
+## Estructura básica del proyecto
     
 ```
 practica-1-segunda-parte-LuzVerde23:
@@ -77,11 +79,27 @@ practica-1-segunda-parte-LuzVerde23:
 ## Ambientes en Contenedor
 
 ### Binder
-En el siguiente botón se realiza el lanzamiento de un ambiente ejeutable donde se podrán interactuar con el paquete realizado [(Max Flow](https://optimizacion-2-2022-gh-classroom.github.io/practica-1-segunda-parte-LuzVerde23/index.html)
+
+En el siguiente botón se realiza el lanzamiento de un ambiente ejeutable donde se podrán interactuar con el paquete realizado (Max Flow)
 
 ### Docker
-De igual forma, en este repositorio se cuenta con un archivo de Docker para crear el contenedor que contiene todas las libreríasy el paquete creado para que pueda ser utilizado desde Docker.
+
+De igual forma, en este repositorio se cuenta con un archivo de Docker para crear el contenedor que contiene todas las libreríasy el paquete creado para que pueda ser utilizado desde [Docker](https://www.docker.com/).
+
+<p align = "center">
+    <img src="images/Docker-Logo.png" width="300" height="110" />
+
+
 --- 
+
+## Documentación del paquete
+
+La documentación del paquete realizado se hizo con [Sphinx](https://www.sphinx-doc.org/en/master/) y se puede consultar en este [link]((https://optimizacion-2-2022-gh-classroom.github.io/practica-1-segunda-parte-LuzVerde23/index.html).
+
+<p align = "center">
+    <img src="images/sphinxheader.png" width="300" height="110" />
+    
+---
 
 ## Referencias
     
