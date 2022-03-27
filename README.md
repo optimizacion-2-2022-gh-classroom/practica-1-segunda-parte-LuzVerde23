@@ -80,7 +80,7 @@ practica-1-segunda-parte-LuzVerde23:
 
 ### Binder
 
-En el siguiente botón se realiza el lanzamiento de un ambiente ejeutable donde se podrán interactuar con el paquete realizado (Max Flow)
+En el siguiente botón se realiza el lanzamiento de un ambiente ejeutable donde se podrá interactuar con el paquete realizado (**MaxFlowAeiu**)
     
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/main?labpath=reporte_equipo_2_parte_2_practica_1.ipynb)
 
