@@ -1,4 +1,6 @@
 pytest
 numpy
 pandas
-ortools
+networkx
+scipy
+matplotlib
