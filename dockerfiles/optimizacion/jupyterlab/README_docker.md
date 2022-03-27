@@ -6,8 +6,7 @@ REPO_URL=sancas96/docker_t3
 DIR=/home/<user>/<midir>/dockerfiles/ #path where this git repository is cloned, example: /home/user/dockerfiles
 BUILD_DIR=$DIR/optimizacion/jupyterlab/$JUPYTERLAB_VERSION
 CONTAINER_NAME=docker_t3
-DIR_RAIZ=/Users/sancas/Documents/Optimizacion/practica-1-segunda-parte-LuzVerde23
-```
+DIR_RAIZ=/home/<user>/<midir>
 
 Clone:
 
