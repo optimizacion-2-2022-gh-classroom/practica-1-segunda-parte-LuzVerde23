@@ -126,12 +126,14 @@ En el siguiente botón se realiza el lanzamiento de un ambiente ejeutable donde 
 
 ### Docker
 
-De igual forma, en este repositorio se cuenta con un archivo de Docker para crear el contenedor que contiene todas las libreríasy el paquete creado para que pueda ser utilizado desde [Docker](https://www.docker.com/).
+De igual forma, en este repositorio se cuenta con un archivo de Docker para crear el contenedor que contiene todas las librerías y el paquete creado para que pueda ser utilizado desde [Docker](https://www.docker.com/).
 
 <p align = "center">
     <img src="images/Docker-Logo.png" width="300" height="110" />
 
-
+Para poder consultar el paquete en **PypI**
+[Pypi](https://pypi.org/project/MaxFlowAeiu/) 
+ 
 --- 
 
 ## Documentación del paquete
