@@ -130,9 +130,6 @@ De igual forma, en este repositorio se cuenta con un archivo de Docker para crea
 
 <p align = "center">
     <img src="images/Docker-Logo.png" width="300" height="110" />
-
-Para poder consultar el paquete en **PypI**
-[Pypi](https://pypi.org/project/MaxFlowAeiu/) 
  
 --- 
 
@@ -142,7 +139,10 @@ La documentación del paquete realizado se hizo con [Sphinx](https://www.sphinx-
 
 <p align = "center">
     <img src="images/sphinxheader.png" width="300" height="110" />
-    
+
+Para poder consultar el paquete en 
+[Pypi](https://pypi.org/project/MaxFlowAeiu/)     
+
 ---
 
 ## Referencias
