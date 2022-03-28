@@ -7,7 +7,7 @@ DIR=/home/<user>/<midir>/dockerfiles/ #path where this git repository is cloned,
 BUILD_DIR=$DIR/optimizacion/jupyterlab/$JUPYTERLAB_VERSION
 CONTAINER_NAME=docker_t3
 DIR_RAIZ=/home/<user>/<midir>
-
+```
 Clone:
 
 ```
