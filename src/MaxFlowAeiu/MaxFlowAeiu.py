@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-class MaxFlowAeiu:
+class MaxFlowAeiu():
     '''
         Finds the paths in order to return the maximum flow in the
         network. This class implements the Ford Fulkerson method.
