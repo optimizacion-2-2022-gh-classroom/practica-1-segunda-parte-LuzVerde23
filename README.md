@@ -143,6 +143,10 @@ La documentación del paquete realizado se hizo con [Sphinx](https://www.sphinx-
 Para poder consultar el paquete en 
 [Pypi](https://pypi.org/project/MaxFlowAeiu/)     
 
+
+La creación del paquete se realizó con PyPi y se tomó de referencia el artículo publicado en la esta [liga](https://towardsdatascience.com/create-your-own-python-package-and-publish-it-into-pypi-9306a29bc116)
+    
+    
 ---
 
 ## Referencias
