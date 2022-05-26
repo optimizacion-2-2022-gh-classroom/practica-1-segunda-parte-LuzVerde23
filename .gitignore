@@ -1,0 +1,20 @@
+## MacOS
+.DS_Store
+
+# ignore everything in .gitignore
+.ipynb_checkpoints
+.idea/**
+notebooks/eda/.ipynb_checkpoints/
+data/*.csv
+conf/local/**
+.idea/
+src/__pycache__
+src/pipeline/__pycache__
+src/utils/__pycache__
+.ipynb_checkpoints
+src/__init__.py
+checkpoints_itam/
+data/luigi/*.pkl
+__pycache__
+archivo_io
+src/docs/_build

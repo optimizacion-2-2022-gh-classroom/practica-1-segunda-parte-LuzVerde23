@@ -1,0 +1,9 @@
+LICENCE.txt
+README.md
+setup.py
+MaxFlowAeiu/MaxFlowAeiu.py
+MaxFlowAeiu/__init__.py
+MaxFlowAeiu.egg-info/PKG-INFO
+MaxFlowAeiu.egg-info/SOURCES.txt
+MaxFlowAeiu.egg-info/dependency_links.txt
+MaxFlowAeiu.egg-info/top_level.txt

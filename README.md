@@ -1,82 +1,164 @@
-**Parte 2 para la práctica 1 del curso de Optimización 2 2021-1: implementación de método numérico para resolver problemas de optimización convexa.**
+<p align = "center">
+    <img src="images/logo_itam.png" width="300" height="110" />
 
-Antes de iniciar a trabajar: 
+---
 
-
-* **Sólo una persona de cada equipo debe darle click a la liga** que está indicada en la publicación de canvas. Una vez que le dé click a la liga tal persona **invite** a sus integrantes de su equipo como **Admin**. Para invitar a su integrante ir dentro del repo a Settings -> Manage Access y enviar la invitación ingresando user de github de su integrante.
+## Tabla de contenido:
     
+1. [Integrantes y roles asignados](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#acerca-de-este-proyecto)
+    
+2. [Acerca de este proyecto](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#acerca-de-este-proyecto)
+    
+3. [Estructura básica del repositorio](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#estructura-b%C3%A1sica-del-proyecto-)
+    
+4. [¿Qué lenguaje utlizamos?](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#qu%C3%A9-lenguaje-utlizamos)
 
-# Instrucciones
+5. [Ambientes en Contenedor](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#ambientes-en-contenedor)
 
-Se encuentran en el archivo [instrucciones.ipynb](instrucciones.ipynb).
+6. [Documentación del paquete](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#documentaci%C3%B3n-del-paquete)
+    
+7. [Referencias](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/blob/main/README.md#referencias)
+    
+---
 
-Usen `git` para llevar la historia de cambios en la realización de sus notebooks o cualquier otro archivo y subirlos a sus repos. No se revisarán aquellos archivos que tengan un commit con todas las respuestas. El trabajo es incremental.
+## Integrantes y roles asignados
 
-**Deben usar la funcionalidad de github**: *issues*, *milestones*, *projects*, *reviewers*, *asignees* o lo que ustedes consideren de github que les ayudará a comunicarse/organizarse (no tienen que usar todas las funcionalidades anteriores y cada equipo decide qué usar). Ver por [ejemplo video para crear proyectos en github](https://youtu.be/z4Xpif7HI04).
+|     ***Integrante***      |             ***Usuario de GitHub***             |  ***Rol asignado***        |                       
+|:-------------------------:|:-----------------------------------------------:|:--------------------------:|
+|  Ita                      |    [sancas96](https://github.com/sancas96)      | Equipo de Programación     | 
+|  Luz                      |    [LuzVerde23](https://github.com/LuzVerde23)  | Administrador de proyecto  | 
+|  Edgar                    |    [EddOselotl](https://github.com/EddOselotl)  | Equipo de Programación     | 
+|  Uriel                    |    [urieluard](https://github.com/urieluard)    | Equipo de Programación     | 
 
-# Dinámica
+---    
 
-Dividir a su equipo para realizar tres tareas. **Ustedes deciden qué integrante resuelve qué tarea**:
+## Acerca de este proyecto
+    
+Este proyecto contiene la segunda parte de la práctica 1 de la materia de "Temas selectos de Modelado". Los **objetivos** de este trabajo son:
+ 
++ **Implementar un método numérico para resolver un problema de optimización convexa**
+    
++ **Documnentar la implementación del método numérico mediante la paquetería [sphinx](https://www.sphinx-doc.org/en/master/)**
+    
+La primera parte de esta práctica está documentada en los siguientes repositorios, donde se realizó una investigación sobre los métodos y problemas de optimización de interés para cada integrante de este equipo. Se reportaron ejemplos, planteamientos y paqueterías que permiten resolver este tipo de problemas.
 
-1. 2 personas que programen el método numérico elegido y elijan los ejemplos para los *tests*.
+  + [Práctica 1, primera parte (equipo: Ita/Luz)](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-primera-parte-sancas96)
+    
+  + [Práctica 1, primera parte (equipo: Edgar/Uriel)](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-primera-parte-urieluard)
 
-2. 1 persona que apoye en la construcción de los *github workflows* (*build & push* de la imagen de docker y *tests*) y realice la documentación del paquete.
+**El algoritmo que se eligió para su implementación corresponde al conocido con el nombre de Ford-Fulkerson** y se utiliza para resolver el **problema de flujo máximo**. En el cual tenemos un nodo inicial, llamado fuente, un nodo terminal que llamaremos sumidero, arcos y nodos que interconectan toda la red. Con un grafo de este tipo lo que queremos encontrar es el valor del flujo máximo que puede circular por la red.
+    
+El problema de optimización planteado se puede resolver desde el punto de vista de la programación lineal de la siguiente forma:
 
-3. 1 persona que sea *project manager* (más detalles de este rol en las notas). Que apoye en la búsqueda de ejemplos y/o documentación para las tareas anteriores. Que cree el botón de *binder*. Que publique la documentación del paquete *online*. Que levante la instancia de AWS.
+#### Variables de Decisión:
 
-Entre todos los y las integrantes tienen que dar *feedback* si es necesario en la resolución de las tareas que haya duda entre ustedes. El *feedback* consiste en resolver/explicar las dudas que existan. **Las personas asignadas a la tarea correspondiente son las que realizan los *commits* una vez resueltas las dudas**.
+Unidades que fluyen desde el nodo i al j (flujo a través de los arcos)
+    
+#### Función Objetivo: 
 
-Los puntos 1, 2 y 3 anteriores los realizan de forma iterativa hasta finalizar las tareas y que estén en acuerdo las y los integrantes de cada equipo con las soluciones.
+Maximizar las unidades que salen del nodo de origen o fuente (s) a los que éste conecta (j, k, l,...) o alternativamente maximizar las unidades que llegan al nodo de destino o sumidero (t) desde los que conectan a él.
 
-# Lenguajes de programación
+#### Restricciones:
 
-Ustedes eligen el lenguaje de programación a usar. La sugerencia es *Python3*.
+* Restricciones de Flujo Máximo: La cantidad de unidades que sale de cada nodo de origen a un nodo de destino no puede superar la capacidad detallada en el arco, por ejemplo, del nodo 1 al nodo 2 sólo se pueden enviar 7 unidades.
 
-# Calificación
+* Restricciones de Balance de Flujo en los Nodos: Debe existir un equilibrio entre la cantidad de unidades que llega a un nodo y las que de éste salen.
 
-La calificación de esta segunda parte es la mitad de la práctica 1. Se asgina una calificación individual por tarea asignada y una calificación por equipo. Se calificará de acuerdo a los *commits* realizados y a los avances que realizan en su trabajo incremental. 
+* No Negatividad e Integralidad: Las variables de decisión deben cumplir las condiciones de no negatividad. Adicionalmente exigiremos que éstas adopten valores enteros aún cuando se podría flexibilizar dicha situación lo que daría origen a un problema de Programación Lineal.
 
-# AWS
+#### Teorema de Ford Fulkerson
 
-Adjunten *screenshots* en un directorio de su repo para mostrar su uso de AWS, debe aparecer en el *screenshot* su nombre, clave única u otra forma de identificar su trabajo. El trabajo en la nube consiste en probar las ejecuciones de su paquete.
+_En cualquier red, el flujo máximo que fluye de la fuente al destino es igual a la capacidad del corte mínimo que separa a la fuente del destino_.
 
-Todas las personas del equipo conocen cómo levantar, configurar instancias de AWS y desplegar servicios allí. Uds elijan a una persona que sea la encargada de realizar lo anterior.
+Esto quiere decir que el algoritmo concluye cuando el flujo máximo es devuelto y su costo depende del costo de cada iteración y del número de estas.
+    
+El algoritmo se programó con base en otro llamado ["Búsqueda en anchura (Breadth-first search)"](https://es.wikipedia.org/wiki/B%C3%BAsqueda_en_anchura). Formalmente,se trata de un algoritmo de búsqueda sin información, que expande y examina todos los nodos de un árbol sistemáticamente para buscar una solución. El algoritmo no usa ninguna estrategia heurística.
+    
+Para myor referencia de los algoritmos de Ford-Fulkerson y de Búsqueda en Anchura consultar el NoteBook [reporte_equipo_2_parte_2_practica_1.ipynb](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-diramtz/blob/main/reporte_equipo_2_parte_2_practica_1.ipynb) y las [referencias](https://github.com/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23#referencias) [3] - [6] que vienen al final de este documento.
 
-# Notas
+#### Uso del Algoritmo
 
-* **Para la entrega crear un archivo con nombre:** `reporte_equipo_<aquí colocar_número>_parte_2_practica_1.ipynb` y contiene ejecución del paquete para los ejemplos elegidos.
+El Algoritmo implementado es capaz de resolver una red o grafo dirigido, que contenga uno y solo un nodo de inyección de flujo (nodo fuente) y otro que sea de solo extracción (nodo sumidero). El ejemplo práctico que se resolvió para comprobar la funcionalidad del algoritmo y el paquete implementado corresponde al de una red eléctrica, en donde nos interesa saber el **flujo máximo de energía eléctica que se puede transmitir desde uno de los nodos ubicados en el norte del país (con alto potencial de generación) hasta otro ubicado en el centro (de los de mayor consumo en el país)**. 
 
-* Renombren este archivo `README.md` por `old_README.md` para que guarden su contenido y creen otro `README.md` donde escriban sus referencias y lo que realizará/realizó cada integrante.
+Resolver este problema resulta interesante por los siguientes aspectos:
+    
+- Para determinar los posibles cuellos de botella (restricciones) que se pueden presentar al tratar de enviar energía desde un punto de la red a otro.
+- Encontrar posibles puntos de inyección donde resulte más conveniente instalar generación (que se obtengan mayores flujos máximos por la red)
+- Descubrir cuales corredores de trasnmisión (rutas) se ven más utilizadas cuando la inyección de energía se presenta en algún punto de la red.
 
-* *Project manager*: es la persona más importante para el éxito del proyecto. Conoce el/los objetivo(s) a resolver, detalla las tareas que realizarán el grupo de programación y el grupo de revisión (creación de *tests* en nuestro caso), organiza y asigna a personas a ambos grupos, crea tarjetas en el [project board de github](https://help.github.com/en/github/managing-your-work-on-github/creating-a-project-board) y [milestones](https://help.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) para dar seguimiento a [issues](https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue). Mantiene un contacto directo con el prof para dudas que tengan y para avisar en qué fase se encuentran. Les explica a su equipo de trabajo la correcta creación de *issues*, solución de los mismos y el uso de *milestones* y del *project board*.
+---  
 
-* La división de las tareas y roles está está inspirada en el *framework* [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real (y en esta práctica estamos super-simplificando tal *framework*).
-
-* Añadan referencias utilizadas para su trabajo en su `README.md`.
-
-* **Los commits deben tener un mensaje explicatorio, no hacer lo siguiente:**
-
+## Estructura básica del repositorio
+    
 ```
-git commit -m "create 1" -i archivo1.txt
+practica-1-segunda-parte-LuzVerde23:
+ |
+ ├── README.md                                   <- Contiene información relevante del proyecto.
+ │
+ ├── reporte_equipo_2_parte_2_practica_1.ipynb   <- Note Book con el reporte donde se explica la implementación del método.
+ |
+ ├── BD                                          <- Bases de datos utilizadas para comprobar el método
+ │
+ ├── Dockerfiles                                 <- Carpeta con archivo de Docker que crea la imágen del entorno para la ejecución del método
+ |
+ ├── src                                         <- Archivos y estructura de carpetas necesarias para el paquete
+ │
+ └── images                                      <- Contiene las imágenes utilizadas en el repositorio.
+```    
 
-git commit -m "update 1" -i archivo1.txt #qué es update 1?
+### ¿Qué lenguaje utlizamos?
 
-git commit -m "update 2" -i archivo1.txt #qué es update 2?
+<img src="images/logo_python.png" width="270" height="100" />
+    
+[***Python.org***](https://www.python.org/)
 
-git commit -m "update 3" -i archivo1.txt #qué es update 3?
-```
+![Versión de Python utilizada (3.7.8)](https://www.python.org/downloads/release/python-378/)
 
-**así también para los *issues*, *projects*, *milestones*...**
+---
 
-* Esta organización es nuestro *playground* utilicen los repos de aquí para practicar :)
+## Ambientes en Contenedor
 
-* Recuerden:
+### Binder
 
-    * ir guardando su trabajo si usan binder y usar `git` para llevar la historia de sus cambios en sus repos :)
-    * poner las referencias que utilizan (aún si le preguntan a una compañera o compañero de la clase coloquen esto en su entrega) pues no está permitido copiar y escribir que lo hicieron sin citar sus fuentes.
+En el siguiente botón se realiza el lanzamiento de un ambiente ejeutable donde se podrá interactuar con el paquete realizado (**MaxFlowAeiu**)
+    
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2022-gh-classroom/practica-1-segunda-parte-LuzVerde23/main?labpath=reporte_equipo_2_parte_2_practica_1.ipynb)
+
+### Docker
+
+De igual forma, en este repositorio se cuenta con un archivo de Docker para crear el contenedor que contiene todas las librerías y el paquete creado para que pueda ser utilizado desde [Docker](https://www.docker.com/).
+
+<p align = "center">
+    <img src="images/Docker-Logo.png" width="300" height="110" />
+ 
+--- 
+
+## Documentación del paquete
+
+La documentación del paquete realizado se hizo con [Sphinx](https://www.sphinx-doc.org/en/master/) y se puede consultar en este [link](https://optimizacion-2-2022-gh-classroom.github.io/practica-1-segunda-parte-LuzVerde23/index.html).
+
+<p align = "center">
+    <img src="images/sphinxheader.png" width="300" height="110" />
+
+Para poder consultar el paquete en 
+[Pypi](https://pypi.org/project/MaxFlowAeiu/)     
 
 
-* Para dudas creen un *room* de gitter e ínvitenme :) (si ya lo hicieron omitan este enunciado)
+La creación del paquete se realizó con PyPi y se tomó de referencia el artículo publicado en la esta [liga](https://towardsdatascience.com/create-your-own-python-package-and-publish-it-into-pypi-9306a29bc116)
+    
+    
+---
 
-* **Su trabajo individual y su tiempo es muy valioso e importante, también el trabajo en equipo. Si alguna persona del equipo no realizó su tarea asignada, esperaría que lo resolvieran entre ustedes, si no lo resuelven avísenme y no realicen su tarea asignada. Si tienen algún problema (familiar, salud,...) infórmenme con tiempo para ver qué podemos hacer :)**
-
+## Referencias
+    
+* [1] [Palacios E. (2022) Libro de Optimización](https://itam-ds.github.io/analisis-numerico-computo-cientifico/4.optimizacion_en_redes_y_prog_lineal/4.2/Definiciones_generales_de_flujo_en_redes.html)
+* [2] [Dumora c. el all. Data Oriented Algorithm for Real Time Estimation of Flow Rates and Flow Directions in Water Distribution Network](https://arxiv.org/pdf/1807.10147.pdf)
+* [3] [Max Flow Problem Introduction](https://www.geeksforgeeks.org/max-flow-problem-introduction/)
+* [4] [Ford-Fulkerson Algorithm](https://www.programiz.com/dsa/ford-fulkerson-algorithm)
+* [5] [Algoritmo de Ford-Fulkerson - Ford–Fulkerson algorithm](https://upwikies.top/wiki/Ford%e2%80%93Fulkerson_algorithm)
+* [6] [Oviedo J. (2008) Algoritmo de Ford-Fulkerson Mejorado](http://www.ptolomeo.unam.mx:8080/jspui/bitstream/132.248.52.100/2387/1/gonzalezoviedo.pdf)
+* [7] [Building a Smarter (and Cheaper) School Bus System: How a Boston-MIT Partnership Led to New Routes That Are 20% More Efficient and Saved the District $5 Million](https://www.the74million.org/article/building-a-smarter-and-cheaper-school-bus-system-how-a-boston-mit-partnership-led-to-new-routes-that-are-20-more-efficient-use-400-fewer-buses-save-5-million/)
+* [8] [Optimazation examples](https://vitalflux.com/convex-optimization-explained-concepts-examples/)
+* [9] [Breadth First Search or BFS for a Graph](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
+* [10] [Python3 sphinx documentation generator](https://www.youtube.com/watch?v=qrcj7sVuvUA)
+ 
